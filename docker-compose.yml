@@ -1,0 +1,88 @@
+version: "3"
+services:
+
+# # DATABASAE  
+  nosql-db:
+    image: mongo:5.0
+    container_name: nosql-db
+    environment:
+      - MONGODB_CONNSTRING=mongodb+srv://paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net/store-repo?retryWrites=true&w=majority
+      # - MONGO_INITDB_ROOT_USERNAME=paulBarasa
+      # - MONGO_INITDB_ROOT_PASSWORD=iZn9gxbNyXFusFN0
+    restart: unless-stopped
+    # ports:
+    #   - "27018:27017"
+
+# # DATABASAE  
+#   nosql-db:
+#     image: mongo
+#     ports:
+#       - "27018:27017"
+#     container_name: nosql-db
+#     volumes:
+#       - ./db/:/data/db
+
+# PRODUCTS  
+  products:
+    build:
+      dockerfile: ./src/Dockerfile
+      context: ./products
+    container_name: products
+    ports:
+      - "8002:8002"
+    restart: always
+    depends_on:
+      - "nosql-db"
+    volumes:
+      - .:/app
+      - /app/products/node_modules
+
+    # env_file:
+    #   - ./products/.env.dev
+
+# SHOPPING  
+  shopping:
+    build:
+      dockerfile: ./src/Dockerfile
+      context: ./shopping
+    container_name: shopping
+    ports:
+      - "8003:8003"
+    restart: always
+    depends_on:
+      - "nosql-db"
+    volumes:
+      - .:/app
+      - /app/shopping/node_modules
+    # env_file:
+    #   - ./shopping/.env.dev
+
+# CUSTOMER  
+  customer:
+    build:
+      dockerfile: ./src/Dockerfile
+      context: ./customer
+    container_name: customer
+    ports:
+      - "8001:8001"
+    restart: always
+    depends_on:
+      - "nosql-db"
+
+    volumes:
+      - .:/app/
+      - /app/customer/node_modules
+    # env_file:
+    #   - ./customer/.env.dev
+
+# PROXY  
+  nginx-proxy:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./proxy
+    depends_on:
+      - products
+      - shopping
+      - customer
+    ports:
+      - 80:80
