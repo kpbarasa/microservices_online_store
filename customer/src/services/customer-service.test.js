@@ -1,7 +1,7 @@
 // SERVICE BEING TESTED 
 describe("CustomerService", () => {
 
-    // FUNCTION BEING TESTED HERE
+    // FUNCTION BEING TESTED
     describe("SignIn", () => {
 
         // SCENARIO TESTED
