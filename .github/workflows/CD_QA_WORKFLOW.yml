@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@v3
       
     - name:  Create Customer Env file
-      working-directory: ../products
+      working-directory: ./customer
       run:
          touch .env
          echo APP_SECRET=jg_youtube_tutorial >> .env
@@ -40,7 +40,7 @@ jobs:
          cat .env
       
     - name:  Create Shopping Env file
-      working-directory: ./products
+      working-directory: ./shopping
       run:
          touch .env
          echo APP_SECRET=jg_youtube_tutorial >> .env
