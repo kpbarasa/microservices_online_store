@@ -30,7 +30,7 @@ jobs:
         npm ci
         npm test
         
-    - name: Test Product Service
+    - name: Test Products Service
       working-directory: ./products
       run:
         npm ci
