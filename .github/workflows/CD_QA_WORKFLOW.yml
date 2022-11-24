@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@v3
       
     - name:  Create Customer Env file
-      working-directory: ./customer
+      working-directory: ./microservices_online_store/customer
       run:
          touch .env
          echo APP_SECRET=jg_youtube_tutorial >> .env
