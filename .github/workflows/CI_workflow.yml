@@ -29,3 +29,9 @@ jobs:
       run:
         npm ci
         npm test
+        
+    - name: Test Product Service
+      working-directory: ./products
+      run:
+        npm ci
+        npm test
