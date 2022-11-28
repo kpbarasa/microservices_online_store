@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  ci_verification:
+  build:
 
     runs-on: ubuntu-latest
 
@@ -26,12 +26,7 @@ jobs:
         
     - name: Test Customer Service
       working-directory: ./customer
-      run:
+      run: 
         npm ci
         npm test
-        
-    - name: Test Products Service
-      working-directory: ./products
-      run:
-        npm ci
-        npm test
+ 
