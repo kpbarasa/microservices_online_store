@@ -17,7 +17,7 @@ jobs:
     - name: Checkout Source Code
       uses: actions/checkout@v2
 
-    - name:  Create Customer Env file
+    - name:  Create customer Env file
       working-directory: ./customer
       run:
          touch .env
@@ -28,7 +28,7 @@ jobs:
          echo PORT=8001 >> .env
          cat .env
 
-    - name:  Create Products  Env file
+    - name:  Create products  Env file
       working-directory: ./products 
       run:
          touch .env
@@ -39,7 +39,7 @@ jobs:
          echo PORT=8001 >> .env
          cat .env
 
-    - name:  Create Shopping  Env file
+    - name:  Create shopping  Env file
       working-directory: ./shopping 
       run:
          touch .env
