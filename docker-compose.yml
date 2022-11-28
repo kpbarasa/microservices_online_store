@@ -12,7 +12,7 @@ services:
     image: mongo:5.0
     container_name: nosql-db
     environment:
-      - MONGODB_CONNSTRING=mongodb+srv://paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net
+      - MONGODB_CONNSTRING=paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net/store-repo?retryWrites=true&w=majority
       - MONGO_INITDB_ROOT_USERNAME=paulBarasa
       - MONGO_INITDB_ROOT_PASSWORD=iZn9gxbNyXFusFN0
     ports:
