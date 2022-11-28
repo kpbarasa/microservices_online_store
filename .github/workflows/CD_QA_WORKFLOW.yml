@@ -39,16 +39,16 @@ jobs:
          echo PORT=8001 >> .env
          cat .env
 
-    - name:  Create Shopping  Env file
-      working-directory: ./shopping 
-      run:
-         touch .env
-         echo APP_SECRET=${{ secrets.QA_APP_SECRET }} >> .env
-         echo MONGODB_URI=${{ secrets.QA_CUSTOMER_DB_URL }} >> .env
-         echo MESSAGE_BROKER_URL=${{ secrets.QA_MSG_QUEUE_URL }}k >> .env
-         echo EXCHANGE_NAME=ONLINE_SHOPPING >> .env
-         echo PORT=8001 >> .env
-         cat .env
+#     - name:  Create Shopping  Env file
+#       working-directory: ./shopping 
+#       run:
+#          touch .env
+#          echo APP_SECRET=${{ secrets.QA_APP_SECRET }} >> .env
+#          echo MONGODB_URI=${{ secrets.QA_CUSTOMER_DB_URL }} >> .env
+#          echo MESSAGE_BROKER_URL=${{ secrets.QA_MSG_QUEUE_URL }}k >> .env
+#          echo EXCHANGE_NAME=ONLINE_SHOPPING >> .env
+#          echo PORT=8001 >> .env
+#          cat .env
          
     - name: Generate Deploymwent package
       run:
