@@ -32,13 +32,13 @@ jobs:
       run:
           zip -r deploy.zip . -x '*.git'
           
-#     - name: Deploy on Elastic beanstalk QA Env
-#       uses: einaregilsson/beantalk-deploy@v20
-#       with:
-#            aws_ accesss_key: ${{secrets.AWS_ACCESS_KEY_ID}}
-#            aws-secret_key: ${{AWS_ACCESS_SECRET_KEY}}
-#            application_name:  online_store_microservices
-#            environment_name: Onlinestoremicroservices-env
-#            version_label: "ver-${{ github.sha }}"
-#            region: eu-central-1
-#            deployment_package: deploy.zip
+    - name: Deploy on Elastic beanstalk QA Env
+      uses: einaregilsson/beantalk-deploy@v20
+      with:
+           aws_ accesss_key: ${{secrets.AWS_ACCESS_KEY_ID}}
+           aws-secret_key: ${{AWS_ACCESS_SECRET_KEY}}
+           application_name:  online_store_microservices
+           environment_name: Onlinestoremicroservices-env
+           version_label: "ver-${{ github.sha }}"
+           region: eu-central-1
+           deployment_package: deploy.zip
