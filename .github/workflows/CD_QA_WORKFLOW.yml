@@ -59,8 +59,8 @@ jobs:
       with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-          application_name: youtube-ms
-          environment_name: Youtubems-env
+          application_name: online_store_microservices
+          environment_name: Onlinestoremicroservices-env
           version_label: "ver-${{ github.sha }}"
           region: eu-central-1
           deployment_package: deploy.zip
