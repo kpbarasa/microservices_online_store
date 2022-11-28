@@ -27,6 +27,28 @@ jobs:
          echo EXCHANGE_NAME=ONLINE_SHOPPING >> .env
          echo PORT=8001 >> .env
          cat .env
+
+    - name:  Create Products  Env file
+      working-directory: ./products 
+      run:
+         touch .env
+         echo APP_SECRET=1234 >> .env
+         echo MONGODB_URI=mongodb+srv://paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net/store-repo?retryWrites=true&w=majority >> .env
+         echo MESSAGE_BROKER_URL=amqps://tqjprzjk:Znfz-W94a7nKekimaaQNIYoJFQ4ucT-f@shark.rmq.cloudamqp.com/tqjprzjk >> .env
+         echo EXCHANGE_NAME=ONLINE_SHOPPING >> .env
+         echo PORT=8001 >> .env
+         cat .env
+
+    - name:  Create Shopping  Env file
+      working-directory: ./shopping 
+      run:
+         touch .env
+         echo APP_SECRET=1234 >> .env
+         echo MONGODB_URI=mongodb+srv://paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net/store-repo?retryWrites=true&w=majority >> .env
+         echo MESSAGE_BROKER_URL=amqps://tqjprzjk:Znfz-W94a7nKekimaaQNIYoJFQ4ucT-f@shark.rmq.cloudamqp.com/tqjprzjk >> .env
+         echo EXCHANGE_NAME=ONLINE_SHOPPING >> .env
+         echo PORT=8001 >> .env
+         cat .env
          
     - name: Generate Deploymwent package
       run:
