@@ -62,5 +62,5 @@ jobs:
           application_name: online_store_microservices
           environment_name: Onlinestoremicroservices-env
           version_label: "ver-${{ github.sha }}"
-          region: eu-central-1
+          region: us-east-1
           deployment_package: deploy.zip
