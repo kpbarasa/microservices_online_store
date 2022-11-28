@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Checkout Source Code
       uses: actions/setup-node@v3
-      
+
     - name:  Create Customer Env file
       working-directory: ./customer
       run:
