@@ -13,8 +13,8 @@ services:
     container_name: nosql-db
     environment:
       - MONGODB_CONNSTRING=paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net/store-repo?retryWrites=true&w=majority
-      - MONGO_INITDB_ROOT_USERNAME=paulBarasa
-      - MONGO_INITDB_ROOT_PASSWORD=iZn9gxbNyXFusFN0
+      # - MONGO_INITDB_ROOT_USERNAME=paulBarasa
+      # - MONGO_INITDB_ROOT_PASSWORD=iZn9gxbNyXFusFN0
     ports:
       - 3000:3000
     restart: unless-stopped
