@@ -55,7 +55,7 @@ jobs:
           zip -r deploy.zip . -x '*.git'
           
     - name: Deploy on Elastic beanstalk QA Env
-<<<<<<< HEAD
+
       uses: einaregilsson/beantalk-deploy@v20
       with:
            aws_ accesss_key: ${{secrets.AWS_ACCESS_KEY_ID}}
@@ -65,14 +65,4 @@ jobs:
            version_label: "ver-${{ github.sha }}"
            region: eu-central-1
            deployment_package: deploy.zip
-=======
-      uses: einaregilsson/beanstalk-deploy@v20
-      with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-          application_name: online_store_microservices
-          environment_name: Onlinestoremicroservices-env
-          version_label: "ver-${{ github.sha }}"
-          region: us-east-1
-          deployment_package: deploy.zip
->>>>>>> bed1060dcce2de7c460949e23ae22ce67a9cc7bb
+
