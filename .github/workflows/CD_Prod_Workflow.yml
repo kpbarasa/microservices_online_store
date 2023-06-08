@@ -52,29 +52,14 @@ jobs:
         run: |
           zip -r deploy.zip . -x '*.git'
       
-#       - name: Deploy on Elastic beanstalk PROD Env
-#         uses: einaregilsson/beanstalk-deploy@v20
-#         with:
-#           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-#           application_name: online_store_microservices_prod
-#           environment_name: onlinestoremicroservicesprod-env
-#           version_label: "ver-${{ github.sha }}"
-#           region: us-east-1
-#           deployment_package: deploy.zip
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Deploy on Elastic beanstalk PROD Env
+        uses: einaregilsson/beanstalk-deploy@v20
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-          aws-region: us-east-1
-
-      - name: Deploy to Elastic Beanstalk
-        uses: einaregilsson/beanstalk-deploy@v17
-        with:
-          application-name: online_store_microservices_prod
-          environment-name: onlinestoremicroservicesprod-env-live
-          existing_bucket_name: elasticbeanstalk-us-east-1-389445828166
-          version-label: ${{ github.sha }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+          application_name: online_store_microservices_prod
+          environment_name: onlinestoremicroservicesprod-env
+          version_label: "ver-${{ github.sha }}"
+          region: us-east-1
+          deployment_package: deploy.zip
           use_existing_version_if_available: true
