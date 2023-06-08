@@ -75,7 +75,7 @@ jobs:
         with:
           application-name: online_store_microservices_prod
           environment-name: onlinestoremicroservicesprod-env-live
-          existing_bucket_name: eelasticbeanstalk-us-east-1-389445828166
+          existing_bucket_name: elasticbeanstalk-us-east-1-389445828166
           version-label: ${{ github.sha }}
           use_existing_version_if_available: true
           aws-region: us-east-1
