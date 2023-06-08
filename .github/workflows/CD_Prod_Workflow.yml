@@ -55,11 +55,11 @@ jobs:
       - name: Deploy on Elastic beanstalk PROD Env
         uses: einaregilsson/beanstalk-deploy@v20
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-key: ${{secrets.AWS_ACCESS_SECRET_KEY}}
           application-name: online_store_microservices_prod
           environment-name: onlinestoremicroservicesprod-env
-          version-label: "ver-${{ github.sha }}"
+          version-label: "ver-${{github.sha}}"
           region: us-east-1
           deployment-package: deploy.zip
           use-existing-version-if-available: true
