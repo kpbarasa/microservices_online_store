@@ -1,32 +1,19 @@
 version: "3"
 services:
-  # myapplication:
-  #   image: myapp:1.0
-  #   environment: 
-  #     - MONGODB_CONNSTRING=mongodb+srv://paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net
-  #   ports:
-  #     - 3000:3000
 
-# # DATABASAE  
+#  DATABASAE  
   nosql-db:
     image: mongo:5.0
     container_name: nosql-db
-    environment:
-      - MONGODB_CONNSTRING=paulBarasa:iZn9gxbNyXFusFN0@cluster0.4p1ws.mongodb.net/store-repo?retryWrites=true&w=majority
-      # - MONGO_INITDB_ROOT_USERNAME=paulBarasa
-      # - MONGO_INITDB_ROOT_PASSWORD=iZn9gxbNyXFusFN0
+    restart: always
     ports:
-      - 3000:3000
-    restart: unless-stopped
-
-# # DATABASAE  
-#   nosql-db:
-#     image: mongo
-#     ports:
-#       - "27018:27017"
-#     container_name: nosql-db
-#     volumes:
-#       - ./db/:/data/db
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=paulBarasa
+      - MONGO_INITDB_ROOT_PASSWORD=iZn9gxbNyXFusFN0
+      - MONGO_INITDB_DATABASE=<your-database-name>
 
 # PRODUCTS  
   products:
@@ -60,8 +47,8 @@ services:
     volumes:
       - .:/app
       - /app/shopping/node_modules
-    # env_file:
-    #   - ./shopping/.env.dev
+    env_file:
+      - ./shopping/.env.dev
 
 # CUSTOMER  
   customer:
@@ -74,7 +61,6 @@ services:
     restart: always
     depends_on:
       - "nosql-db"
-
     volumes:
       - .:/app/
       - /app/customer/node_modules
