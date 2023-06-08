@@ -58,11 +58,11 @@ jobs:
 
       uses: einaregilsson/beantalk-deploy@v20
       with:
-           aws_ accesss_key: ${{secrets.AWS_ACCESS_KEY_ID}}
-           aws-secret_key: ${{AWS_ACCESS_SECRET_KEY}}
-           application_name:  online_store_microservices
-           environment_name: Onlinestoremicroservices-env
-           version_label: "ver-${{ github.sha }}"
+           aws-accesss-key: ${{secrets.AWS_ACCESS_KEY_ID}}
+           aws-secret-key: ${{AWS_ACCESS_SECRET_KEY}}
+           application-name:  online_store_microservices
+           environment-name: Onlinestoremicroservices-env
+           version-label: "ver-${{ github.sha }}"
            region: eu-central-1
            deployment_package: deploy.zip
 
