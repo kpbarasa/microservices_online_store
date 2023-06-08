@@ -75,6 +75,6 @@ jobs:
         with:
           aws-region: us-east-1
           application-name: online_store_microservices_prod
-          environment-name: onlinestoremicroservicesprod-env
+          environment-name: onlinestoremicroservicesprod-env-live
           version-label: ${{ github.sha }}
           deployment_package: deploy.zip
