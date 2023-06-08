@@ -79,4 +79,3 @@ jobs:
           existing_bucket_name: eelasticbeanstalk-us-east-1-389445828166
           version-label: ${{ github.sha }}
           use_existing_version_if_available: true
-          deployment_package: deploy.zip
